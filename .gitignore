@@ -50,3 +50,10 @@ yarn-error.log*
 !/test
 !/tsconfig.eslint.json
 !/tsconfig.jest.json
+
+# Python gitignore
+.venv/
+
+# Editor configs
+.vscode/
+.vim
