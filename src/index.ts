@@ -1,3 +1,4 @@
+import * as path from 'path'
 import { Runtime } from '@aws-cdk/aws-lambda';
 import { SnsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 import * as pylambda from '@aws-cdk/aws-lambda-python';
@@ -21,8 +22,10 @@ export class CloudwatchAlarmsToTeamsConstruct extends cdk.Construct {
 
     this.topic = new sns.Topic(this, 'SNSTopic');
 
+    console.log(path.join(__dirname, '..', 'src', 'functions', 'teamsLambda'));
+
     this.lambdaFunction = new pylambda.PythonFunction(this, 'TransformFunction', {
-      entry: 'src/functions/teamsLambda',
+      entry: path.join(__dirname, '..', 'src', 'functions', 'teamsLambda'),
       index: 'index.py',
       handler: 'handler',
       runtime: Runtime.PYTHON_3_8,
