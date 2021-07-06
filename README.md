@@ -1,12 +1,3 @@
-# Welcome to your CDK TypeScript Construct Library project!
+# Cloudwatch Alarms to Chat
 
-You should explore the contents of this project. It demonstrates a CDK Construct Library that includes a construct (`CloudwatchAlarmsToTeamsConstruct`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
-
-The construct defines an interface (`CloudwatchAlarmsToTeamsConstructProps`) to configure the visibility timeout of the queue.
-
-## Useful commands
-
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
+This repository provides [AWS CDK Constructs](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html) for sending CloudWatch Alarm notifications to various chat services.

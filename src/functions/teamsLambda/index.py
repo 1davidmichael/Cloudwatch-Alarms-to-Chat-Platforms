@@ -16,11 +16,16 @@ def lambda_handler(event, context):
     teams_message.title(msg['Records'][0]['Subject'])
     teams_message.text(encoded_msg['AlarmDescription'])
 
+    alarm_state = encoded_msg['NewStateValue']
+
     # Set color based off alarm type
-    if encoded_msg['NewStateValue'] == 'ALARM':
+    # https://aws.amazon.com/blogs/aws/amazon-cloudwatch-alarms/
+    if alarm_state == 'ALARM':
         color = '#FF0000'
-    else:
+    elif alarm_state == "OK":
         color = '#00FF00'
+    else:
+        color = '#FFFF00'
 
     teams_message.color(color)
     teams_message.send()
