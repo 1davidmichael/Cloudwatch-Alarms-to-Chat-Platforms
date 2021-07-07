@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot Test 1`] = `
+Object {
+  "Parameters": Object {
+    "AssetParameters90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccbArtifactHashDE6A91E7": Object {
+      "Description": "Artifact hash for asset \\"90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccb\\"",
+      "Type": "String",
+    },
+    "AssetParameters90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccbS3Bucket8FE9166A": Object {
+      "Description": "S3 bucket for asset \\"90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccb\\"",
+      "Type": "String",
+    },
+    "AssetParameters90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccbS3VersionKeyC4BE6953": Object {
+      "Description": "S3 key for asset version \\"90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccb\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "SingletonLambdab1475680a6b64c589fb819ffd4325f453623CE19": Object {
+      "DependsOn": Array [
+        "SingletonLambdab1475680a6b64c589fb819ffd4325f45ServiceRole7FFE3EEB",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccbS3Bucket8FE9166A",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccbS3VersionKeyC4BE6953",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters90a90abce6c1b9a867c8e97e9f50328616db66e468fdcf6cbc87660c29e41ccbS3VersionKeyC4BE6953",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "WEBHOOK": "https://testhook.com",
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "SingletonLambdab1475680a6b64c589fb819ffd4325f45ServiceRole7FFE3EEB",
+            "Arn",
+          ],
+        },
+        "Runtime": "python3.8",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "SingletonLambdab1475680a6b64c589fb819ffd4325f45AllowInvokeTestSNSTopicC77C5CD29D0617FE": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "SingletonLambdab1475680a6b64c589fb819ffd4325f453623CE19",
+            "Arn",
+          ],
+        },
+        "Principal": "sns.amazonaws.com",
+        "SourceArn": Object {
+          "Ref": "TestSNSTopicAFADF243",
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "SingletonLambdab1475680a6b64c589fb819ffd4325f45ServiceRole7FFE3EEB": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "TestSNSTopicAFADF243": Object {
+      "Type": "AWS::SNS::Topic",
+    },
+    "TestTransformFunctionSNSTopic052B5F50": Object {
+      "Properties": Object {
+        "Endpoint": Object {
+          "Fn::GetAtt": Array [
+            "SingletonLambdab1475680a6b64c589fb819ffd4325f453623CE19",
+            "Arn",
+          ],
+        },
+        "Protocol": "lambda",
+        "TopicArn": Object {
+          "Ref": "TestSNSTopicAFADF243",
+        },
+      },
+      "Type": "AWS::SNS::Subscription",
+    },
+  },
+}
+`;
