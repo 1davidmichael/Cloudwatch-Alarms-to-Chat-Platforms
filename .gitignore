@@ -10,6 +10,7 @@
 .eslintcache
 .jsii
 .nyc_output
+.venv/
 .yarn-integrity
 /.changelog.tmp.md
 /.version.tmp.json

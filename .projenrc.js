@@ -24,4 +24,5 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-cloudwatch-actions',
   ],
 });
+project.gitignore.addPatterns('.venv/');
 project.synth();
