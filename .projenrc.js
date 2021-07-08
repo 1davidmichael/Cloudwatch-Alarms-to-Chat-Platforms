@@ -2,7 +2,7 @@ const { AwsCdkConstructLibrary } = require('projen');
 const project = new AwsCdkConstructLibrary({
   author: 'David Michael',
   authorAddress: '1.david.michael@gmail.com',
-  cdkVersion: '1.95.2',
+  cdkVersion: '1.111.0',
   defaultReleaseBranch: 'main',
   name: 'cloudwatch-alarms-to-teams',
   repositoryUrl: 'https://github.com/1.david.michael/cloudwatch-alarms-to-teams.git',
@@ -24,4 +24,5 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-cloudwatch-actions',
   ],
 });
+project.gitignore.addPatterns('.venv/');
 project.synth();
