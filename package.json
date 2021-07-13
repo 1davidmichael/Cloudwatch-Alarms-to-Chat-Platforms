@@ -1,8 +1,8 @@
 {
-  "name": "cloudwatch-alarms-to-teams",
+  "name": "@1davidmichael/cloudwatch-alarms-to-teams",
   "repository": {
     "type": "git",
-    "url": "https://github.com/1.david.michael/cloudwatch-alarms-to-teams.git"
+    "url": "https://github.com/1davidmichael/Cloudwatch-Alarms-to-Chat-Platforms"
   },
   "scripts": {
     "clobber": "npx projen clobber",
@@ -31,7 +31,7 @@
     "organization": false
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.111.0",
+    "@aws-cdk/assert": "^1.113.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^10.17.0",
     "@typescript-eslint/eslint-plugin": "^4.28.2",
@@ -54,21 +54,21 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
-    "@aws-cdk/aws-cloudwatch": "^1.111.0",
-    "@aws-cdk/aws-cloudwatch-actions": "^1.111.0",
-    "@aws-cdk/aws-lambda": "^1.111.0",
-    "@aws-cdk/aws-lambda-event-sources": "^1.111.0",
-    "@aws-cdk/aws-sns": "^1.111.0",
-    "@aws-cdk/core": "^1.111.0",
+    "@aws-cdk/aws-cloudwatch": "^1.113.0",
+    "@aws-cdk/aws-cloudwatch-actions": "^1.113.0",
+    "@aws-cdk/aws-lambda": "^1.113.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.113.0",
+    "@aws-cdk/aws-sns": "^1.113.0",
+    "@aws-cdk/core": "^1.113.0",
     "constructs": "^3.2.27"
   },
   "dependencies": {
-    "@aws-cdk/aws-cloudwatch": "^1.111.0",
-    "@aws-cdk/aws-cloudwatch-actions": "^1.111.0",
-    "@aws-cdk/aws-lambda": "^1.111.0",
-    "@aws-cdk/aws-lambda-event-sources": "^1.111.0",
-    "@aws-cdk/aws-sns": "^1.111.0",
-    "@aws-cdk/core": "^1.111.0"
+    "@aws-cdk/aws-cloudwatch": "^1.113.0",
+    "@aws-cdk/aws-cloudwatch-actions": "^1.113.0",
+    "@aws-cdk/aws-lambda": "^1.113.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.113.0",
+    "@aws-cdk/aws-sns": "^1.113.0",
+    "@aws-cdk/core": "^1.113.0"
   },
   "bundledDependencies": [],
   "keywords": [
@@ -120,7 +120,12 @@
   "stability": "stable",
   "jsii": {
     "outdir": "dist",
-    "targets": {},
+    "targets": {
+      "python": {
+        "distName": "cloudwatch-alarms-to-teams",
+        "module": "cloudwatch_alarms_to_teams"
+      }
+    },
     "tsc": {
       "outDir": "lib",
       "rootDir": "src"
