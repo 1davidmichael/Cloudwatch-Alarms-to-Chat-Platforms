@@ -4,7 +4,7 @@ const project = new AwsCdkConstructLibrary({
   authorAddress: '1.david.michael@gmail.com',
   cdkVersion: '1.113.0',
   defaultReleaseBranch: 'main',
-  name: '@1davidmichael/cloudwatch-alarms-to-teams',
+  name: 'cloudwatch-alarms-to-teams',
   repositoryUrl: 'https://github.com/1davidmichael/Cloudwatch-Alarms-to-Chat-Platforms',
 
   // cdkDependencies: undefined,        /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */
