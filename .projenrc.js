@@ -2,10 +2,10 @@ const { AwsCdkConstructLibrary } = require('projen');
 const project = new AwsCdkConstructLibrary({
   author: 'David Michael',
   authorAddress: '1.david.michael@gmail.com',
-  cdkVersion: '1.111.0',
+  cdkVersion: '1.113.0',
   defaultReleaseBranch: 'main',
-  name: 'cloudwatch-alarms-to-teams',
-  repositoryUrl: 'https://github.com/1.david.michael/cloudwatch-alarms-to-teams.git',
+  name: '@1davidmichael/cloudwatch-alarms-to-teams',
+  repositoryUrl: 'https://github.com/1davidmichael/Cloudwatch-Alarms-to-Chat-Platforms',
 
   // cdkDependencies: undefined,        /* Which AWS CDK modules (those that start with "@aws-cdk/") does this library require when consumed? */
   // cdkTestDependencies: undefined,    /* AWS CDK modules required for testing. */
@@ -23,6 +23,10 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-cloudwatch',
     '@aws-cdk/aws-cloudwatch-actions',
   ],
+  python: {
+    distName: 'cloudwatch-alarms-to-teams',
+    module: 'cloudwatch_alarms_to_teams',
+  },
 });
 project.gitignore.addPatterns('.venv/');
 project.synth();

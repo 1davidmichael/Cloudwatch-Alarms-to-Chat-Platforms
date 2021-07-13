@@ -57,4 +57,4 @@ export class TestCdkConstructStack extends cdk.Stack {
 
 ## API
 
-For specific API usage see the [API Docs](./API.md)
+For specific API usage see the [API Docs](https://github.com/1davidmichael/Cloudwatch-Alarms-to-Chat-Platforms/blob/main/API.md)
