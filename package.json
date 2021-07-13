@@ -1,5 +1,5 @@
 {
-  "name": "@1davidmichael/cloudwatch-alarms-to-teams",
+  "name": "cloudwatch-alarms-to-teams",
   "repository": {
     "type": "git",
     "url": "https://github.com/1davidmichael/Cloudwatch-Alarms-to-Chat-Platforms"
