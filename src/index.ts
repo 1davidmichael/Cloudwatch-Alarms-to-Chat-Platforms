@@ -27,12 +27,12 @@ export class CloudwatchAlarmsToTeamsConstruct extends cdk.Construct {
 
     this.topic = new sns.Topic(this, 'SNSTopic');
 
-    console.log(path.join(__dirname, '..', 'src', 'functions', 'teamsLambda'));
+    console.log(path.join(__dirname, 'functions', 'teamsLambda'));
 
     const execOptions: ExecSyncOptions = { stdio: ['ignore', process.stderr, 'inherit'] };
 
     this.lambdaFunction = new lambda.SingletonFunction(this, 'TransformFunction', {
-      code: lambda.Code.fromAsset(path.join(__dirname, '..', 'src', 'functions', 'teamsLambda'), {
+      code: lambda.Code.fromAsset(path.join(__dirname, 'functions', 'teamsLambda'), {
         bundling: {
           image: lambda.Runtime.PYTHON_3_8.bundlingImage,
           local: {
@@ -42,8 +42,8 @@ export class CloudwatchAlarmsToTeamsConstruct extends cdk.Construct {
               } catch {
                 return false;
               }
-              execSync(`pip3 install -r ${path.join(__dirname, '..', 'src', 'functions', 'teamsLambda', 'requirements.txt')} -t ${outputDir}`);
-              execSync(`cp -au ${path.join(__dirname, '..', 'src', 'functions', 'teamsLambda')} ${outputDir}`);
+              execSync(`pip3 install -r ${path.join(__dirname, 'functions', 'teamsLambda', 'requirements.txt')} -t ${outputDir}`);
+              execSync(`cp -au ${path.join(__dirname, 'functions', 'teamsLambda')} ${outputDir}`);
 
               return true;
             },
