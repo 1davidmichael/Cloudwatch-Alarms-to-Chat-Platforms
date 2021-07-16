@@ -3,28 +3,28 @@
 exports[`Snapshot Test 1`] = `
 Object {
   "Parameters": Object {
-    "AssetParameters9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50ArtifactHash5EFFC462": Object {
-      "Description": "Artifact hash for asset \\"9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50\\"",
+    "AssetParametersd03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9ArtifactHashCB6B738D": Object {
+      "Description": "Artifact hash for asset \\"d03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9\\"",
       "Type": "String",
     },
-    "AssetParameters9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50S3BucketB323683E": Object {
-      "Description": "S3 bucket for asset \\"9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50\\"",
+    "AssetParametersd03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9S3BucketFA1E25A2": Object {
+      "Description": "S3 bucket for asset \\"d03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9\\"",
       "Type": "String",
     },
-    "AssetParameters9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50S3VersionKeyF84E5183": Object {
-      "Description": "S3 key for asset version \\"9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50\\"",
+    "AssetParametersd03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9S3VersionKey9D308110": Object {
+      "Description": "S3 key for asset version \\"d03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9\\"",
       "Type": "String",
     },
   },
   "Resources": Object {
-    "SingletonLambdab1475680a6b64c589fb819ffd4325f453623CE19": Object {
+    "TestAlarmFunction0CE806B6": Object {
       "DependsOn": Array [
-        "SingletonLambdab1475680a6b64c589fb819ffd4325f45ServiceRole7FFE3EEB",
+        "TestAlarmFunctionServiceRoleBB959AB8",
       ],
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50S3BucketB323683E",
+            "Ref": "AssetParametersd03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9S3BucketFA1E25A2",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -37,7 +37,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50S3VersionKeyF84E5183",
+                          "Ref": "AssetParametersd03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9S3VersionKey9D308110",
                         },
                       ],
                     },
@@ -50,7 +50,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters9bc8a413ab43fd8bce09e2946a1de8f41aab435c01567de10f38e89818ca0a50S3VersionKeyF84E5183",
+                          "Ref": "AssetParametersd03cd3580f0b71052a95d156ee5f2ced579b589d1ff7f89500204c40aea5fbe9S3VersionKey9D308110",
                         },
                       ],
                     },
@@ -62,26 +62,27 @@ Object {
         },
         "Environment": Object {
           "Variables": Object {
-            "WEBHOOK": "https://testhook.com",
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "MS_TEAMS_WEBHOOK": "https://testhook.com",
           },
         },
         "Handler": "index.handler",
         "Role": Object {
           "Fn::GetAtt": Array [
-            "SingletonLambdab1475680a6b64c589fb819ffd4325f45ServiceRole7FFE3EEB",
+            "TestAlarmFunctionServiceRoleBB959AB8",
             "Arn",
           ],
         },
-        "Runtime": "python3.8",
+        "Runtime": "nodejs14.x",
       },
       "Type": "AWS::Lambda::Function",
     },
-    "SingletonLambdab1475680a6b64c589fb819ffd4325f45AllowInvokeTestSNSTopicC77C5CD29D0617FE": Object {
+    "TestAlarmFunctionAllowInvokeTestSNSTopicC77C5CD20A249902": Object {
       "Properties": Object {
         "Action": "lambda:InvokeFunction",
         "FunctionName": Object {
           "Fn::GetAtt": Array [
-            "SingletonLambdab1475680a6b64c589fb819ffd4325f453623CE19",
+            "TestAlarmFunction0CE806B6",
             "Arn",
           ],
         },
@@ -92,7 +93,22 @@ Object {
       },
       "Type": "AWS::Lambda::Permission",
     },
-    "SingletonLambdab1475680a6b64c589fb819ffd4325f45ServiceRole7FFE3EEB": Object {
+    "TestAlarmFunctionSNSTopic72DD8974": Object {
+      "Properties": Object {
+        "Endpoint": Object {
+          "Fn::GetAtt": Array [
+            "TestAlarmFunction0CE806B6",
+            "Arn",
+          ],
+        },
+        "Protocol": "lambda",
+        "TopicArn": Object {
+          "Ref": "TestSNSTopicAFADF243",
+        },
+      },
+      "Type": "AWS::SNS::Subscription",
+    },
+    "TestAlarmFunctionServiceRoleBB959AB8": Object {
       "Properties": Object {
         "AssumeRolePolicyDocument": Object {
           "Statement": Array [
@@ -125,21 +141,6 @@ Object {
     },
     "TestSNSTopicAFADF243": Object {
       "Type": "AWS::SNS::Topic",
-    },
-    "TestTransformFunctionSNSTopic052B5F50": Object {
-      "Properties": Object {
-        "Endpoint": Object {
-          "Fn::GetAtt": Array [
-            "SingletonLambdab1475680a6b64c589fb819ffd4325f453623CE19",
-            "Arn",
-          ],
-        },
-        "Protocol": "lambda",
-        "TopicArn": Object {
-          "Ref": "TestSNSTopicAFADF243",
-        },
-      },
-      "Type": "AWS::SNS::Subscription",
     },
   },
 }
