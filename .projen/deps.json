@@ -2,7 +2,7 @@
   "dependencies": [
     {
       "name": "@aws-cdk/assert",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "build"
     },
     {
@@ -20,6 +20,10 @@
     },
     {
       "name": "@typescript-eslint/parser",
+      "type": "build"
+    },
+    {
+      "name": "esbuild",
       "type": "build"
     },
     {
@@ -96,33 +100,42 @@
       "type": "build"
     },
     {
+      "name": "axios",
+      "type": "bundled"
+    },
+    {
       "name": "@aws-cdk/aws-cloudwatch-actions",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-cloudwatch",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-lambda-event-sources",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
+      "type": "peer"
+    },
+    {
+      "name": "@aws-cdk/aws-lambda-nodejs",
+      "version": "^1.114.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-lambda",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/aws-sns",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "peer"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "peer"
     },
     {
@@ -132,32 +145,37 @@
     },
     {
       "name": "@aws-cdk/aws-cloudwatch-actions",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/aws-cloudwatch",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/aws-lambda-event-sources",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
+      "type": "runtime"
+    },
+    {
+      "name": "@aws-cdk/aws-lambda-nodejs",
+      "version": "^1.114.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/aws-lambda",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/aws-sns",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "runtime"
     },
     {
       "name": "@aws-cdk/core",
-      "version": "^1.113.0",
+      "version": "^1.114.0",
       "type": "runtime"
     }
   ],
