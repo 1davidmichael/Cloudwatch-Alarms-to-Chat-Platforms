@@ -49,7 +49,7 @@ public addAlarmToTeamsNotification(alarm: Alarm)
 
 ##### `lambdaFunction`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.lambdaFunction"></a>
 
-- *Type:* [`@aws-cdk/aws-lambda.SingletonFunction`](#@aws-cdk/aws-lambda.SingletonFunction)
+- *Type:* [`@aws-cdk/aws-lambda-nodejs.NodejsFunction`](#@aws-cdk/aws-lambda-nodejs.NodejsFunction)
 
 ---
 

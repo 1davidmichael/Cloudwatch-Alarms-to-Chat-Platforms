@@ -62,7 +62,6 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.114.0",
     "@aws-cdk/aws-sns": "^1.114.0",
     "@aws-cdk/core": "^1.114.0",
-    "axios": "^1.114.0",
     "constructs": "^3.2.27"
   },
   "dependencies": {
@@ -73,9 +72,11 @@
     "@aws-cdk/aws-lambda-nodejs": "^1.114.0",
     "@aws-cdk/aws-sns": "^1.114.0",
     "@aws-cdk/core": "^1.114.0",
-    "axios": "^1.114.0"
+    "axios": "^0.21.1"
   },
-  "bundledDependencies": [],
+  "bundledDependencies": [
+    "axios"
+  ],
   "keywords": [
     "cdk"
   ],

@@ -23,6 +23,8 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-sns',
     '@aws-cdk/aws-cloudwatch',
     '@aws-cdk/aws-cloudwatch-actions',
+  ],
+  bundledDeps: [
     'axios',
   ],
   devDeps: [

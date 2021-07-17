@@ -100,6 +100,10 @@
       "type": "build"
     },
     {
+      "name": "axios",
+      "type": "bundled"
+    },
+    {
       "name": "@aws-cdk/aws-cloudwatch-actions",
       "version": "^1.114.0",
       "type": "peer"
@@ -131,11 +135,6 @@
     },
     {
       "name": "@aws-cdk/core",
-      "version": "^1.114.0",
-      "type": "peer"
-    },
-    {
-      "name": "axios",
       "version": "^1.114.0",
       "type": "peer"
     },
@@ -176,11 +175,6 @@
     },
     {
       "name": "@aws-cdk/core",
-      "version": "^1.114.0",
-      "type": "runtime"
-    },
-    {
-      "name": "axios",
       "version": "^1.114.0",
       "type": "runtime"
     }
