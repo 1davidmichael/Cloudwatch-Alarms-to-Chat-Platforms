@@ -11,7 +11,7 @@ import { Runtime } from '@aws-cdk/aws-lambda';
 import * as _lambda from '@aws-cdk/aws-lambda-python';
 import * as cloudwatch from '@aws-cdk/aws-cloudwatch';
 import * as cw_actions from '@aws-cdk/aws-cloudwatch-actions';
-import * as notifications from '../../Cloudwatch-Alarms-to-Chat-Platforms/src/index';
+import * as notifications from 'cloudwatch-alarms-to-teams';
 import * as path from 'path'
 import * as events from '@aws-cdk/aws-events';
 import * as targets from '@aws-cdk/aws-events-targets';
@@ -46,14 +46,18 @@ export class TestCdkConstructStack extends cdk.Stack {
       period: cdk.Duration.minutes(1)
     });
 
-    const note = new notifications.CloudwatchAlarmsToTeamsConstruct(this, "Notification", {
+    const notify = new notifications.CloudwatchAlarmsToTeamsConstruct(this, "Notification", {
       webhookUrl: "https://test.webhook.office.com/webhookb2/example-webhook-goes-here"
     });
 
-    note.addAlarmToTeamsNotification(alarm);
+    notify.addAlarmToTeamsNotification(alarm);
   }
 }
 ```
+
+## Example Notification in Teams
+
+![Example Image](images/example.png)
 
 ## API
 
