@@ -30,6 +30,9 @@ export class CloudwatchAlarmsToTeamsConstruct extends cdk.Construct {
       runtime: Runtime.NODEJS_14_X,
       handler: 'handler',
       entry: path.join(__dirname, 'index.AlarmFunction.ts'),
+      bundling: {
+        nodeModules: ['axios'],
+      },
       environment: {
         MS_TEAMS_WEBHOOK: props.webhookUrl,
       },
