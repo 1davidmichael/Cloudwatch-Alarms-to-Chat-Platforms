@@ -12,19 +12,19 @@ import { CloudwatchAlarmsToTeamsConstruct } from 'cloudwatch-alarms-to-teams'
 new CloudwatchAlarmsToTeamsConstruct(scope: Construct, id: string, props: CloudwatchAlarmsToTeamsConstructProps)
 ```
 
-##### `scope`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.scope"></a>
+##### `scope`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.parameter.scope"></a>
 
 - *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
 
 ---
 
-##### `id`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.id"></a>
+##### `id`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.parameter.id"></a>
 
 - *Type:* `string`
 
 ---
 
-##### `props`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.props"></a>
+##### `props`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.parameter.props"></a>
 
 - *Type:* [`cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstructProps`](#cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstructProps)
 
@@ -38,7 +38,7 @@ new CloudwatchAlarmsToTeamsConstruct(scope: Construct, id: string, props: Cloudw
 public addAlarmToTeamsNotification(alarm: Alarm)
 ```
 
-###### `alarm`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.alarm"></a>
+###### `alarm`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.parameter.alarm"></a>
 
 - *Type:* [`@aws-cdk/aws-cloudwatch.Alarm`](#@aws-cdk/aws-cloudwatch.Alarm)
 
@@ -47,13 +47,13 @@ public addAlarmToTeamsNotification(alarm: Alarm)
 
 #### Properties <a name="Properties"></a>
 
-##### `lambdaFunction`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.lambdaFunction"></a>
+##### `lambdaFunction`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.property.lambdaFunction"></a>
 
 - *Type:* [`@aws-cdk/aws-lambda-nodejs.NodejsFunction`](#@aws-cdk/aws-lambda-nodejs.NodejsFunction)
 
 ---
 
-##### `topic`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.topic"></a>
+##### `topic`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.property.topic"></a>
 
 - *Type:* [`@aws-cdk/aws-sns.Topic`](#@aws-cdk/aws-sns.Topic)
 
@@ -72,7 +72,7 @@ import { CloudwatchAlarmsToTeamsConstructProps } from 'cloudwatch-alarms-to-team
 const cloudwatchAlarmsToTeamsConstructProps: CloudwatchAlarmsToTeamsConstructProps = { ... }
 ```
 
-##### `webhookUrl`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstructProps.webhookUrl"></a>
+##### `webhookUrl`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstructProps.property.webhookUrl"></a>
 
 - *Type:* `string`
 

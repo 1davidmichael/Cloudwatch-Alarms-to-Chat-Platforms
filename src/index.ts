@@ -1,4 +1,3 @@
-import * as path from 'path';
 import * as cloudwatch from '@aws-cdk/aws-cloudwatch';
 import * as cw_actions from '@aws-cdk/aws-cloudwatch-actions';
 import { Runtime } from '@aws-cdk/aws-lambda';
@@ -28,11 +27,7 @@ export class CloudwatchAlarmsToTeamsConstruct extends cdk.Construct {
 
     this.lambdaFunction = new lambda.NodejsFunction(this, 'AlarmFunction', {
       runtime: Runtime.NODEJS_14_X,
-      handler: 'handler',
-      entry: path.join(__dirname, 'index.AlarmFunction.ts'),
-      bundling: {
-        nodeModules: ['axios'],
-      },
+      description: 'CloudWatch Alarms to Microsoft Teams Webhook',
       environment: {
         MS_TEAMS_WEBHOOK: props.webhookUrl,
       },

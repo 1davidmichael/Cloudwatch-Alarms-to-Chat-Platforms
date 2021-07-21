@@ -24,9 +24,6 @@ const project = new AwsCdkConstructLibrary({
     '@aws-cdk/aws-cloudwatch',
     '@aws-cdk/aws-cloudwatch-actions',
   ],
-  bundledDeps: [
-    'axios',
-  ],
   devDeps: [
     'esbuild',
   ],
@@ -35,5 +32,7 @@ const project = new AwsCdkConstructLibrary({
     module: 'cloudwatch_alarms_to_teams',
   },
 });
+
+project.compileTask.exec('cp src/index.AlarmFunction.ts lib/index.AlarmFunction.ts');
 project.gitignore.addPatterns('.vim/');
 project.synth();
