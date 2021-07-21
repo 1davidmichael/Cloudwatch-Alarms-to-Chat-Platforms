@@ -1,10 +1,14 @@
-import * as axios from 'axios';
+import * as https from 'https';
+import * as url from 'url';
 
 
 exports.handler = async function(event: any, _context: any) {
   console.log('event:', JSON.stringify(event));
 
-  const webhookUri = process.env.MS_TEAMS_WEBHOOK as string;
+  const webhookUri = new url.URL(process.env.MS_TEAMS_WEBHOOK as string);
+
+  const hostname = webhookUri.hostname;
+  const path = webhookUri.pathname;
 
   const alarm = JSON.parse(event.Records[0].Sns.Message);
   const alarmName = alarm.AlarmName;
@@ -31,10 +35,31 @@ exports.handler = async function(event: any, _context: any) {
       },
     ],
   });
+  const options = {
+    hostname: hostname,
+    port: 443,
+    path: path,
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': webhookBody.length,
+    },
+  };
 
-  const response = await axios.default.post(webhookUri, webhookBody);
-  console.log(`Response is: ${response.status}`);
+  const req = https.request(options, res => {
+    console.log(`statusCode: ${res.statusCode}`);
 
+    res.on('data', d => {
+      process.stdout.write(d);
+    });
+  });
+
+  req.on('error', error => {
+    console.error(error);
+  });
+
+  req.write(webhookBody);
+  req.end();
 };
 
 function getColor(alarmState: string): string {
