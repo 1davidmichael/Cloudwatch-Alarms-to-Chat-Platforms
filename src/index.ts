@@ -6,6 +6,8 @@ import * as lambda from '@aws-cdk/aws-lambda-nodejs';
 import * as sns from '@aws-cdk/aws-sns';
 import * as cdk from '@aws-cdk/core';
 
+import * as path from 'path';
+
 export interface CloudwatchAlarmsToTeamsConstructProps {
   /**
    * Provide a webhook url.
@@ -27,6 +29,7 @@ export class CloudwatchAlarmsToTeamsConstruct extends cdk.Construct {
     this.lambdaFunction = new lambda.NodejsFunction(this, 'AlarmFunction', {
       runtime: Runtime.NODEJS_14_X,
       handler: 'handler',
+      entry: path.join(__dirname, 'index.AlarmFunction.ts'),
       environment: {
         MS_TEAMS_WEBHOOK: props.webhookUrl,
       },
