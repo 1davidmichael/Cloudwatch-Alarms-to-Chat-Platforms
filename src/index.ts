@@ -1,3 +1,4 @@
+import * as path from 'path';
 import * as cloudwatch from '@aws-cdk/aws-cloudwatch';
 import * as cw_actions from '@aws-cdk/aws-cloudwatch-actions';
 import { Runtime } from '@aws-cdk/aws-lambda';
@@ -6,7 +7,6 @@ import * as lambda from '@aws-cdk/aws-lambda-nodejs';
 import * as sns from '@aws-cdk/aws-sns';
 import * as cdk from '@aws-cdk/core';
 
-import * as path from 'path';
 
 export interface CloudwatchAlarmsToTeamsConstructProps {
   /**
