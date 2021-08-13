@@ -1,8 +1,8 @@
-const { AwsCdkConstructLibrary } = require('projen');
+const { AwsCdkConstructLibrary, License } = require('projen');
 const project = new AwsCdkConstructLibrary({
   author: 'David Michael',
   authorAddress: '1.david.michael@gmail.com',
-  cdkVersion: '1.114.0',
+  cdkVersion: '1.118.0',
   defaultReleaseBranch: 'main',
   name: 'cloudwatch-alarms-to-teams',
   repositoryUrl: 'https://github.com/1davidmichael/Cloudwatch-Alarms-to-Chat-Platforms',
@@ -15,10 +15,13 @@ const project = new AwsCdkConstructLibrary({
   // packageName: undefined,            /* The "name" in package.json. */
   // projectType: ProjectType.UNKNOWN,  /* Which type of project this is (library/app). */
   // releaseWorkflow: undefined,        /* Define a GitHub workflow for releasing from "main" when new versions are bumped. */
+  license: 'Apache-2.0',
+  autoDetectBin: false,
+  compat: true,
   cdkDependencies: [
     '@aws-cdk/core',
     '@aws-cdk/aws-lambda',
-    '@aws-cdk/aws-lambda-nodejs',
+    '@aws-cdk/aws-lambda-python',
     '@aws-cdk/aws-lambda-event-sources',
     '@aws-cdk/aws-sns',
     '@aws-cdk/aws-cloudwatch',
@@ -33,6 +36,7 @@ const project = new AwsCdkConstructLibrary({
   },
 });
 
-project.compileTask.exec('cp src/index.AlarmFunction.ts lib/index.AlarmFunction.ts');
-project.gitignore.addPatterns('.vim/');
+const gitExcludes = ['.vim/', '.vscode/', '.venv/', 'file:/'];
+
+project.gitignore.addPatterns(...gitExcludes);
 project.synth();

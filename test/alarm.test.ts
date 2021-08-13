@@ -1,6 +1,6 @@
 import { expect as expectCDK, countResources, SynthUtils } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import { CloudwatchAlarmsToTeamsConstruct } from '../src';
+import { CloudwatchAlarmsToTeams } from '../src';
 
 /*
  * Example test
@@ -9,7 +9,7 @@ test('SNS Topic Created', () => {
   const app = new cdk.App();
   const stack = new cdk.Stack(app, 'TestStack');
   // WHEN
-  new CloudwatchAlarmsToTeamsConstruct(stack, 'MyTestConstruct', {
+  new CloudwatchAlarmsToTeams(stack, 'MyTestConstruct', {
     webhookUrl: 'https://testhook.com',
   });
   // THEN
@@ -20,7 +20,7 @@ test('Lambda Function Created', () => {
   const app = new cdk.App();
   const stack = new cdk.Stack(app, 'TestStack');
   // WHEN
-  new CloudwatchAlarmsToTeamsConstruct(stack, 'MyTestConstruct', {
+  new CloudwatchAlarmsToTeams(stack, 'MyTestConstruct', {
     webhookUrl: 'https://testhook.com',
   });
   // THEN
@@ -29,7 +29,7 @@ test('Lambda Function Created', () => {
 
 test('Snapshot Test', () => {
   const stack = new cdk.Stack();
-  new CloudwatchAlarmsToTeamsConstruct(stack, 'Test', {
+  new CloudwatchAlarmsToTeams(stack, 'Test', {
     webhookUrl: 'https://testhook.com',
   });
   expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();

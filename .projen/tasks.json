@@ -70,9 +70,6 @@
         },
         {
           "spawn": "docgen"
-        },
-        {
-          "exec": "cp src/index.AlarmFunction.ts lib/index.AlarmFunction.ts"
         }
       ]
     },
