@@ -26,9 +26,11 @@ export class CloudwatchAlarmsToTeams extends cdk.Construct {
 
     this.topic = new sns.Topic(this, 'SNSTopic');
 
+    console.log(path.join(__dirname, '../functions', 'teams/'));
+
     this.lambdaFunction = new lambda.PythonFunction(this, 'AlarmFunction', {
       runtime: Runtime.PYTHON_3_8,
-      entry: path.join(__dirname, '../functions', 'teams'),
+      entry: path.join(__dirname, '../functions', 'teams/'),
       description: 'CloudWatch Alarms to Microsoft Teams Webhook',
       environment: {
         MS_TEAMS_WEBHOOK: props.webhookUrl,
