@@ -1,6 +1,6 @@
 import { expect as expectCDK, countResources, SynthUtils } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import { CloudwatchAlarmsToTeams } from '../src';
+import { CloudwatchAlarmsToTeams } from '../index';
 
 /*
  * Example test

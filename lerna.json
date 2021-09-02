@@ -1,0 +1,15 @@
+{
+    "npmClient": "yarn",
+    "useWorkspaces": true,
+    "packages": ["packages/*", "examples/*"],
+    "version": "independent",
+    "command": {
+      "publish": {
+        "allowBranch": "master"
+      }
+    },
+    "ignoreChanges": [
+      "**/__fixtures__/**",
+      "**/__tests__/**"
+    ]
+  }

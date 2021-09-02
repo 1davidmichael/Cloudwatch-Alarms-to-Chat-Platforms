@@ -1,0 +1,94 @@
+{
+  "name": "@1davidmichael/cdk-cloudwatch-to-chat",
+  "version": "1.40.1",
+  "description": "Constructs for cloudwatch notifications: #slack / msteams",
+  "license": "MIT",
+  "author": {
+    "name": "David Michael",
+    "url": "https://github.com/1davidmichael"
+  },
+  "awscdkio": {
+    "twitter": "d_michael"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1davidmichael/cdk-constructs.git",
+    "directory": "packages/cdk-cloudwatch-to-chat"
+  },
+  "homepage": "https://github.com/1davidmichael/cdk-constructs",
+  "keywords": [
+    "aws",
+    "cdk",
+    "slack",
+    "msteams",
+    "cloudwatch",
+    "@1davidmichael"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib",
+    ".jsii"
+  ],
+  "scripts": {
+    "build": "cdkdx build",
+    "watch": "cdkdx build -w",
+    "test": "cdkdx test",
+    "lint": "cdkdx lint",
+    "upgrade:cdk": "cdkdx upgrade-cdk",
+    "package": "cdkdx package",
+    "docgen": "cdkdx docgen",
+    "release:npm": "cdkdx release npm",
+    "release:pypi": "cdkdx release pypi"
+  },
+  "jsii": {
+    "outdir": "dist",
+    "tsc": {
+      "outDir": "lib",
+      "rootDir": "src"
+    },
+    "excludeTypescript": [
+      "src/lambdas",
+      "src/**/__tests__"
+    ],
+    "targets": {
+      "python": {
+        "distName": "1davidmichael.cdk-cloudwatch-to-chat",
+        "module": "1davidmichael.cdk_cloudwatch_to_chat"
+      }
+    }
+  },
+  "peerDependencies": {
+    "@aws-cdk/aws-chatbot": "^1.121.0",
+    "@aws-cdk/aws-iam": "^1.121.0",
+    "@aws-cdk/aws-lambda": "^1.121.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.121.0",
+    "@aws-cdk/aws-sns": "^1.121.0",
+    "@aws-cdk/core": "^1.121.0",
+    "constructs": "^3.2.0",
+    "@aws-cdk/aws-cloudwatch": "^1.121.0",
+    "@aws-cdk/aws-cloudwatch-actions": "^1.121.0",
+    "@aws-cdk/aws-lambda-python": "^1.121.0"
+  },
+  "dependencies": {
+    "@aws-cdk/aws-chatbot": "^1.121.0",
+    "@aws-cdk/aws-cloudwatch": "^1.121.0",
+    "@aws-cdk/aws-cloudwatch-actions": "^1.121.0",
+    "@aws-cdk/aws-iam": "^1.121.0",
+    "@aws-cdk/aws-lambda": "^1.121.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.121.0",
+    "@aws-cdk/aws-lambda-python": "^1.121.0",
+    "@aws-cdk/aws-sns": "^1.121.0",
+    "@aws-cdk/core": "^1.121.0"
+  },
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.121.0",
+    "aws-sdk": "^2.974.0",
+    "axios": "^0.21.1",
+    "jest-cdk-snapshot": "^1.4.2"
+  },
+  "externals": [
+    "aws-sdk"
+  ],
+  "gitHead": "b1ac0776c6169c1ca4a1434cad09d99c0ecb41ab"
+}

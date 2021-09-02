@@ -7,7 +7,6 @@ import * as lambda from '@aws-cdk/aws-lambda-python';
 import * as sns from '@aws-cdk/aws-sns';
 import * as cdk from '@aws-cdk/core';
 
-
 export interface CloudwatchAlarmsToTeamsProps {
   /**
    * Provide a webhook url.
@@ -17,7 +16,6 @@ export interface CloudwatchAlarmsToTeamsProps {
 }
 
 export class CloudwatchAlarmsToTeams extends cdk.Construct {
-
   public readonly lambdaFunction: lambda.PythonFunction;
   public readonly topic: sns.Topic;
 
@@ -26,11 +24,9 @@ export class CloudwatchAlarmsToTeams extends cdk.Construct {
 
     this.topic = new sns.Topic(this, 'SNSTopic');
 
-    console.log(path.join(__dirname, '../functions', 'teams/'));
-
     this.lambdaFunction = new lambda.PythonFunction(this, 'AlarmFunction', {
       runtime: Runtime.PYTHON_3_8,
-      entry: path.join(__dirname, '../functions', 'teams/'),
+      entry: path.join(__dirname, 'functions', 'teams/'),
       description: 'CloudWatch Alarms to Microsoft Teams Webhook',
       environment: {
         MS_TEAMS_WEBHOOK: props.webhookUrl,
@@ -40,7 +36,7 @@ export class CloudwatchAlarmsToTeams extends cdk.Construct {
     this.lambdaFunction.addEventSource(new SnsEventSource(this.topic));
   }
 
-  public addAlarmToTeamsNotification(alarm: cloudwatch.Alarm) {
+  public addAlarmToTeamsNotification(alarm: cloudwatch.Alarm): void {
     alarm.addOkAction(new cw_actions.SnsAction(this.topic));
     alarm.addAlarmAction(new cw_actions.SnsAction(this.topic));
   }
