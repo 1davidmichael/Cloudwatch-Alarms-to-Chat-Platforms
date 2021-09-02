@@ -28,6 +28,8 @@ jobs:
         run: yarn lint
       - name: Env
         run: env && docker info
+      - name: Temp Dir
+        run: echo "TMP=/tmp" >> $GITHUB_ENV
       - name: Testing
         run: yarn test
         env:
@@ -36,6 +38,4 @@ jobs:
       #  run: git diff --exit-code
     container:
       image: jsii/superchain
-      volumes:
-        - asset-input:/asset-input
-        - asset-output:/asset-output
+      options: '--tty'

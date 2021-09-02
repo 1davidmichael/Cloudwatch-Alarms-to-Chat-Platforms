@@ -13,7 +13,7 @@
     "lint": "cdkdx lint --report-unused-disable-directives",
     "lint:fix": "cdkdx lint --fix",
     "docgen": "FORCE_COLOR=1 lerna run docgen --scope @cloudcomponents/*",
-    "package": "FORCE_COLOR=1 lerna run package --scope @cloudcomponents/*",
+    "package": "FORCE_COLOR=1 lerna run package --scope @1davidmichael/*",
     "release:npm": "FORCE_COLOR=1 lerna run release:npm --scope @cloudcomponents/*",
     "release:pypi": "FORCE_COLOR=1 lerna run release:pypi --scope @cloudcomponents/*"
   },
