@@ -14,6 +14,10 @@ jobs:
         node: ["12", "14"]
     name: Node ${{ matrix.node }} build
     steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
