@@ -33,7 +33,7 @@
   "scripts": {
     "build": "cdkdx build",
     "watch": "cdkdx build -w",
-    "test": "cdkdx test",
+    "test": "cdkdx test --verbose --useStderr --debug",
     "lint": "cdkdx lint",
     "upgrade:cdk": "cdkdx upgrade-cdk",
     "package": "cdkdx package",
