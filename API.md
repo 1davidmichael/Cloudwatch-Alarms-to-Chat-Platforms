@@ -4,7 +4,7 @@
 
 ### CloudwatchAlarmsToTeamsConstruct <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct"></a>
 
-#### Initializer <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.Initializer"></a>
+#### Initializers <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.Initializer"></a>
 
 ```typescript
 import { CloudwatchAlarmsToTeamsConstruct } from 'cloudwatch-alarms-to-teams'
@@ -49,11 +49,19 @@ public addAlarmToTeamsNotification(alarm: Alarm)
 
 ##### `lambdaFunction`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.property.lambdaFunction"></a>
 
+```typescript
+public readonly lambdaFunction: NodejsFunction;
+```
+
 - *Type:* [`@aws-cdk/aws-lambda-nodejs.NodejsFunction`](#@aws-cdk/aws-lambda-nodejs.NodejsFunction)
 
 ---
 
 ##### `topic`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstruct.property.topic"></a>
+
+```typescript
+public readonly topic: Topic;
+```
 
 - *Type:* [`@aws-cdk/aws-sns.Topic`](#@aws-cdk/aws-sns.Topic)
 
@@ -73,6 +81,10 @@ const cloudwatchAlarmsToTeamsConstructProps: CloudwatchAlarmsToTeamsConstructPro
 ```
 
 ##### `webhookUrl`<sup>Required</sup> <a name="cloudwatch-alarms-to-teams.CloudwatchAlarmsToTeamsConstructProps.property.webhookUrl"></a>
+
+```typescript
+public readonly webhookUrl: string;
+```
 
 - *Type:* `string`
 
